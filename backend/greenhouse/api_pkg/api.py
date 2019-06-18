@@ -5,7 +5,6 @@ api.py
 """
 
 from datetime import datetime, timedelta
-
 from flask import Blueprint, jsonify, request, current_app
 
 api = Blueprint('api', __name__)
