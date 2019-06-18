@@ -74,6 +74,14 @@ export default {
 
     padding: 14px 16px;
     font-size: 17px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .tabcontent {
