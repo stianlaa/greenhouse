@@ -4,8 +4,9 @@ application.py
 """
 
 from greenhouse.api_pkg import flask_app
+from greenhouse.api_pkg import flask_app
 
-def create_app(app_name='GREENHOUSE_BACKEND'):
+def create_flask_app():
 
-  app = flask_app.create_app()
+  app = flask_app.create_flask_app()
   return app

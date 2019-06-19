@@ -7,7 +7,7 @@ from flask import Flask
 from flask_cors import CORS
 from .api import api
 
-def create_app(app_name='SURVEY_API'):
+def create_flask_app(app_name='GREENHOUSE'):
   app = Flask(app_name)
   app.config.from_object('greenhouse.api_pkg.config.BaseConfig')
   cors = CORS(app, resources={"/api/*": {"origins": "*"}})
