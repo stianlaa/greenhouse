@@ -13,6 +13,7 @@
     <div v-if="currentTab === 'Status'" class="tabcontent">
       <h3>Status!</h3>
       <p>This is the current status of the greenhouse</p>
+      {{weather}}
     </div>
 
     <div v-if="currentTab === 'Tab2'" class="tabcontent">
@@ -24,17 +25,22 @@
       <h3>Tab3</h3>
       <p>Under construction</p>
     </div>
-
+    
   </div>
 </template>
 
+
 <script>
+// import { mapState } from 'vuex'
+import { getCurrentWeather } from '@/api'  
+import { constants } from 'crypto';
 
 export default {
   name: 'Index',
   data: function () {
     return {
       currentTab: "Status",
+      weather: {}
     }
   },
   methods: {
@@ -47,10 +53,25 @@ export default {
     statusIsSelected() {
       console.log(this.currentTab);
       return this.currentTab === "Status";
-    }
-  }
+    },
+  },
+  mounted() {
+      console.log("attempting to call")
+      getCurrentWeather().then(response => {
+      this.weather = response
+    })
+  },
+
+  // mapState({
+  //   currentWeather: state => state
+  // }),
+  
+  // mounted() {
+  //   this.$store.dispatch('setCurrentWeather')
+  // }
 }
 </script>
+
 
 <style lang="scss" scoped>
   .pagebody {

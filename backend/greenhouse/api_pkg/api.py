@@ -6,6 +6,7 @@ api.py
 
 from datetime import datetime, timedelta
 from flask import Blueprint, jsonify, request, current_app
+from greenhouse.consumers.weatherstatus import just_fetch_weatherdata
 
 api = Blueprint('api', __name__)
 
@@ -13,6 +14,13 @@ api = Blueprint('api', __name__)
 def say_hello(name):  
     response = { 'msg': "Hello {}".format(name) }
     return jsonify(response)
+
+@api.route('/get_current_weather/')
+def get_current_weather():
+    print("got here")
+    response = just_fetch_weatherdata()
+    return jsonify(response)
+
 
 # def token_required(f):
 #     @wraps(f)

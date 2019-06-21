@@ -13,8 +13,8 @@ def start_main_loop():
   with conn:
     i = 0
     
-    while i < 3:
-      fetch_and_store_weatherdata(conn)
+    while i < 300:
+      # fetch_and_store_weatherdata(conn)
       # print("last row id:")
       # print(add_weatherdata(conn, ("dateAndTimeEntry", "temperatureEntry", "humidityEntry", "cloudinessEntry")))
       i+=1

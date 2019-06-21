@@ -2,16 +2,23 @@
 
 import Vue from 'vue'  
 import Vuex from 'vuex'
+import { getCurrentWeather } from '@/api'
 
 Vue.use(Vuex)
 
 const state = {  
   // single source of data
-  temperatures: [],
+  weather: {},
 }
 
 const actions = {  
   // asynchronous operations
+  loadCurrentWeather(context) {
+    return getCurrentWeather()
+    .then((response) => {
+      context.commit('setCurrentWeather', {weather: response.data})
+    })
+  }
 }
 
 const mutations = {  

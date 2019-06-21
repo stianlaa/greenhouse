@@ -15,6 +15,6 @@ def create_flask_app(app_name='GREENHOUSE'):
   cors = CORS(app, resources={"/api/*": {"origins": "*"}})
   
   app.register_blueprint(api, url_prefix="/api")
-
+  
   print("Started flask app")
   return app
