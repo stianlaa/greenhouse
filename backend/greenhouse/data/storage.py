@@ -8,6 +8,7 @@ from sqlite3 import Error
 
 def create_connection(db_file):
     try:
+        print("establishing database connection")
         conn = sqlite3.connect(db_file)
         return conn
     except Error as e:
