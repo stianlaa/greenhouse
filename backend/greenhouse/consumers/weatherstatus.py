@@ -5,7 +5,7 @@ weatherstatus.py
 
 import requests
 from bs4 import BeautifulSoup as Soup
-from greenhouse.data.storage import add_weatherdata
+from greenhouse.data.storage import store_weatherdata
 
 # lat = 59.91
 # lon = 10.63
@@ -18,7 +18,9 @@ params = {'lat': '59.91', 'lon': '10.63'}
 def fetch_and_store_weatherdata(conn):
     res = requests.get(base_url, params=params, timeout=7)
     soup = Soup(res.text,"xml")
-    add_weatherdata(conn, (soup.time["from"], soup.time.location.temperature["value"], soup.time.location.humidity["value"], soup.time.location.cloudiness["percent"]))
+    print(soup.time["from"])
+    print(soup.time.location.temperature["value"])
+    store_weatherdata(conn, (soup.time["from"], soup.time.location.temperature["value"], soup.time.location.humidity["value"], soup.time.location.cloudiness["percent"]))
 
 def just_fetch_weatherdata():
     res = requests.get(base_url, params=params, timeout=7)

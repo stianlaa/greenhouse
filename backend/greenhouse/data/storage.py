@@ -14,12 +14,18 @@ def create_connection(db_file):
     except Error as e:
         print(e)
  
-def add_weatherdata(conn, weatherdata):
+def store_weatherdata(conn, weatherdata):
     sql = ''' INSERT INTO weatherdata(dateAndTime, temperature, humidity, cloudiness)
               VALUES(?,?,?,?) '''
     cur = conn.cursor()
-    cur.execute(sql, weatherdata)
-    return cur.lastrowid
+    try:
+        cur.execute(sql, weatherdata)
+        conn.commit()
+        return cur.lastrowid
+    except Exception as err:
+        if str(err) != "interrupted":
+            print ("Database error: {0}".format(str(err)))
+        return None
 
 def select_all_weatherdata(conn):
     cur = conn.cursor()
