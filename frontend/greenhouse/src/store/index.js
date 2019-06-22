@@ -1,7 +1,6 @@
-// src/store/index.js
-
 import Vue from 'vue'  
 import Vuex from 'vuex'
+
 import { getCurrentWeather } from '@/api'
 
 Vue.use(Vuex)
@@ -16,12 +15,20 @@ const actions = {
   loadCurrentWeather(context) {
     return getCurrentWeather()
     .then((response) => {
+      console.log("response")
+      console.log(response)
+      console.log(response.data)
       context.commit('setCurrentWeather', {weather: response.data})
     })
   }
 }
 
 const mutations = {  
+  setCurrentWeather(state, payload) {
+    console.log("payload")
+    console.log(payload)
+    state.weather = payload.weather
+  }
   // isolated data mutations
 }
 

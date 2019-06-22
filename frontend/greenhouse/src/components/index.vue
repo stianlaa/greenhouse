@@ -13,7 +13,10 @@
     <div v-if="currentTab === 'Status'" class="tabcontent">
       <h3>Status!</h3>
       <p>This is the current status of the greenhouse</p>
-      {{weather}}
+      <p> Sample time: {{currentWeather.from}}</p>
+      <p> Current temperature: {{currentWeather.temperature}} C</p>
+      <p> Current humidity: {{currentWeather.humidity}} %</p>
+      <p> Current cloudiness: {{currentWeather.cloudiness}} %</p>
     </div>
 
     <div v-if="currentTab === 'Tab2'" class="tabcontent">
@@ -31,7 +34,7 @@
 
 
 <script>
-// import { mapState } from 'vuex'
+import { mapState } from 'vuex'
 import { getCurrentWeather } from '@/api'  
 import { constants } from 'crypto';
 
@@ -55,20 +58,18 @@ export default {
       return this.currentTab === "Status";
     },
   },
-  mounted() {
-      console.log("attempting to call")
-      getCurrentWeather().then(response => {
-      this.weather = response
-    })
-  },
-
-  // mapState({
-  //   currentWeather: state => state
-  // }),
-  
   // mounted() {
-  //   this.$store.dispatch('setCurrentWeather')
-  // }
+  //     console.log("attempting to call")
+  //     getCurrentWeather().then(response => {
+  //     this.weather = response
+  //   })
+  // },
+  computed: mapState({
+    currentWeather: state => state.weather
+  }),
+  beforeMount() {
+    this.$store.dispatch('loadCurrentWeather')
+  }
 }
 </script>
 
