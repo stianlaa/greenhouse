@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 def start_main_loop():
   print("Starting main loop")
-  database = "C:\\sqlite\db\pythonsqlite.db"
+  database = "/home/stian/sqlite/greenhouse.db"
   from greenhouse.data.storage import create_connection
   from greenhouse.consumers.weatherstatus import fetch_and_store_weatherdata
 

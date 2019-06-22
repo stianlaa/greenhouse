@@ -21,7 +21,7 @@ def create_table(conn, create_table_sql):
         print(e)
 
 def main():
-    database_path = "C:\\sqlite\db\pythonsqlite.db"
+    database_path = "/home/stian/sqlite/greenhouse.db"
     weatherdata_table = """CREATE TABLE IF NOT EXISTS weatherdata (
                                         id integer PRIMARY KEY,
                                         dateAndTime text NOT NULL,
