@@ -5,11 +5,12 @@ storage.py
 
 import sqlite3
 from sqlite3 import Error
+import logging
 
-def create_connection(db_file):
+def create_connection(db_path):
     try:
         print("establishing database connection")
-        conn = sqlite3.connect(db_file)
+        conn = sqlite3.connect(db_path)
         return conn
     except Error as e:
         print(e)
