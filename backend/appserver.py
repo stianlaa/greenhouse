@@ -43,7 +43,7 @@ def setup_logging(log_level):
   logger = logging.getLogger(__name__)
 
 
-if __name__ == '__main__':
+def start_greenhouse_app():
   import threading
   import time
 
@@ -55,3 +55,6 @@ if __name__ == '__main__':
 
   threading.Thread(start_main_loop(), daemon=True).start()
   
+
+if __name__ == '__main__':
+  start_greenhouse_app()
