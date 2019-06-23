@@ -47,7 +47,7 @@ if __name__ == '__main__':
   import threading
   import time
 
-  setup_logging(logging.DEBUG)
+  setup_logging(logging.INFO)
 
   threading.Thread(target=start_flask_app, daemon=True).start()
 
