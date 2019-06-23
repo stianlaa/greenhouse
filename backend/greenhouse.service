@@ -1,0 +1,12 @@
+[Unit]
+Description=uWSGI Python container server  
+After=network.target
+
+[Service]
+User=greenhouse
+Group=www-data  
+WorkingDirectory=/home/stian/environments/projects/greenhouse/backend  
+ExecStart=/home/stian/environments/projects/greenhouse/prod --ini greenhouse.ini
+
+[Install]
+WantedBy=multi-user.target
