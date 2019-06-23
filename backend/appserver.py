@@ -4,7 +4,7 @@ appserver.py
 """
 from datetime import datetime, timedelta
 import logging
-
+import time
 
 def start_main_loop():
   from greenhouse.data.storage import create_connection
@@ -26,7 +26,7 @@ def start_main_loop():
 
 
 def start_flask_app():
-  from greenhouse.application import create_flask_app
+  from greenhouse.api_pkg.flask_app import create_flask_app
   app = create_flask_app()
   logging.info("Started flask app")
   app.run(host='0.0.0.0') # 0.0.0.0 for opening to non-localhost
@@ -45,8 +45,9 @@ def setup_logging(log_level):
 
 def start_greenhouse_app():
   import threading
-  import time
+  import platform
 
+  print(platform.python_version())
   setup_logging(logging.INFO)
 
   threading.Thread(target=start_flask_app, daemon=True).start()
