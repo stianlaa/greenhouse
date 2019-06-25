@@ -8,13 +8,13 @@ from flask_cors import CORS
 from .api import api
 
 def create_flask_app(app_name='GREENHOUSE'):
-  app = Flask(app_name)
-  
-  app.config.from_object('greenhouse.api_pkg.config.BaseConfig')
-  
-  cors = CORS(app, resources={"/api/*": {"origins": "*"}})
-  
-  app.register_blueprint(api, url_prefix="/api")
-  
+  print("0"
+  flask_app = Flask(app_name)
+  print("1")  
+  flask_app.config.from_object('greenhouse.api_pkg.config.BaseConfig')
+  print("2")
+  cors = CORS(flask_app, resources={"/api/*": {"origins": "*"}})
+  print("3")  
+  flask_app.register_blueprint(api, url_prefix="/api")
   print("Started flask app")
-  return app
+  return flask_app

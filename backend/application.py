@@ -19,8 +19,8 @@ def start_main_loop():
     logging.info("Started weatherstatus fetcher")
 
     while True:
-      # next_time = next_request_time(1800, 30)
-      next_time = next_request_time(30, 3)
+      next_time = next_request_time(1800, 30)
+      # next_time = next_request_time(30, 3)
       fetch_and_store_weatherdata(conn)
 
       while datetime.now() < next_time:
@@ -44,10 +44,12 @@ def start_greenhouse_app():
 
   # general setup
   print(platform.python_version())
-  setup_logging(logging.INFO)
+  setup_logging(logging.DEBUG)
 
   # start main threads
   threading.Thread(start_main_loop(), daemon=True).start()
+
+  time.sleep(1)
 
   # start api, and return the wsgi app
   return create_flask_app()
