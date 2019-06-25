@@ -47,9 +47,9 @@ def start_greenhouse_app():
   setup_logging(logging.DEBUG)
 
   # start main threads
-  threading.Thread(start_main_loop(), daemon=True).start()
+  #threading.Thread(start_main_loop(), daemon=True).start()
 
   time.sleep(1)
-
+  logging.info("Starting up flask app")
   # start api, and return the wsgi app
   return create_flask_app()

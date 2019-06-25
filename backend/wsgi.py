@@ -6,4 +6,3 @@ wsgi.py
 from application import start_greenhouse_app
 
 app = start_greenhouse_app()
-app.ruin()
