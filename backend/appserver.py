@@ -4,6 +4,6 @@ appserver.py
 """
 
 if __name__ == '__main__':
-  from application import start_greenhouse_app
-  greenhouse_app = start_greenhouse_app()
-  greenhouse_app.run(host='0.0.0.0')
+  from greenhouse.application import create_app
+  app = create_app()
+  app.run(host='0.0.0.0')
