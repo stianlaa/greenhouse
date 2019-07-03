@@ -1,10 +1,12 @@
+
+
 <template>
     <div class="app">
     <div class="topheader">
       <div class="logo-container">
         <nav id="menu">
           <a href="http://localhost:8080/">
-          <Leaf/>
+          <!-- <Leaf/> -->
           <h1 class="logotext">Greenhouse</h1>
           </a>
         </nav>
@@ -18,13 +20,13 @@
 
 <script>
 import index from './components/index.vue'
-import Leaf from './assets/leaf.svg';
+// import Leaf from './assets/leaf.svg';
 
 export default {
   name: 'app',
   components: {
     index,
-    Leaf
+    // Leaf
   },
 }
 </script>

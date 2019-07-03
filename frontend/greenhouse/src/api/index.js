@@ -1,13 +1,9 @@
 import axios from 'axios'
 
-// const API_URL = 'http://127.0.0.1:5000/api'
-const API_URL = 'http://192.168.10.173:5000/api'
-
-export function getCurrentWeather() {  
-  console.log("at api!")
-  return axios.get(`${API_URL}/get_current_weather/`)
+export function getCurrentWeather() {
+  return axios.get(`${process.env.ROOT_API}/get_current_weather/`)
 }
 
 export function getWeatherFromTo(from, to) { 
-    return axios.get(`${API_URL}/surveys/${from}/${to}`)
-  }
+    return axios.get(`${process.env.ROOT_API}/get_weather/${from}/${to}`)
+}
