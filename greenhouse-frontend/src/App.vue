@@ -6,7 +6,7 @@
       <div class="logo-container">
         <nav id="menu">
           <a href="http://localhost:8080/">
-          <!-- <Leaf/> -->
+          <img svg-inline class="icon" src="./assets/leaf.svg"/>
           <h1 class="logotext">Greenhouse</h1>
           </a>
         </nav>
@@ -19,14 +19,12 @@
 </template>
 
 <script>
-import index from './components/index.vue'
-// import Leaf from './assets/leaf.svg';
+import index from './components/index.vue';
 
 export default {
   name: 'app',
   components: {
-    index,
-    // Leaf
+    index
   },
 }
 </script>

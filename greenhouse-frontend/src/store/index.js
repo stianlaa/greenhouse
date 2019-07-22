@@ -20,8 +20,6 @@ const actions = {
 
 const mutations = {  
   setCurrentWeather(state, payload) {
-    console.log("payload")
-    console.log(payload)
     state.weather = payload.weather
   }
 }

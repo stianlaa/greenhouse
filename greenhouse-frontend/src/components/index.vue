@@ -13,7 +13,7 @@
     <div v-if="currentTab === 'Status'" class="tabcontent">
       <h3>Status!</h3>
       <p>This is the current status of the greenhouse</p>
-      <p> Sample time: {{currentWeather.from}}</p>
+      <p> Sample time: {{currentWeather.sampletime}}</p>
       <p> Current temperature: {{currentWeather.temperature}} C</p>
       <p> Current humidity: {{currentWeather.humidity}} %</p>
       <p> Current cloudiness: {{currentWeather.cloudiness}} %</p>
@@ -58,12 +58,6 @@ export default {
       return this.currentTab === "Status";
     },
   },
-  // mounted() {
-  //     console.log("attempting to call")
-  //     getCurrentWeather().then(response => {
-  //     this.weather = response
-  //   })
-  // },
   computed: mapState({
     currentWeather: state => state.weather
   }),
