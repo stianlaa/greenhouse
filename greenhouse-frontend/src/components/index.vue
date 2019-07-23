@@ -3,30 +3,32 @@
   <div>
       <div class="tabheader">
         <button class="tablinks" @click="chooseTab('Status')" 
-        :style="getTab() === 'Status'? 'background-color: #405d27;' : 'background-color: #82b74b'">Status</button>
+        :style="getTab() === 'Status'? 'background-color: #617B30;' : 'background-color: #A3BF45'">
+        <img svg-inline class="icon" src="@/assets/flowerpot.svg"/> status
+        </button>
         <button class="tablinks" @click="chooseTab('Tab2')" 
-        :style="getTab() === 'Tab2'? 'background-color: #405d27' : 'background-color: #82b74b'">Tab2</button>
+        :style="getTab() === 'Tab2'? 'background-color: #617B30' : 'background-color: #A3BF45'">
+        <img svg-inline class="icon" src="@/assets/graph.svg"/> history
+        </button>
         <button class="tablinks" @click="chooseTab('Tab3')" 
-        :style="getTab() === 'Tab3'? 'background-color: #405d27' : 'background-color: #82b74b'">Tab3</button>
+        :style="getTab() === 'Tab3'? 'background-color: #617B30' : 'background-color: #A3BF45'">
+        <img svg-inline class="icon" src="@/assets/gear.svg"/> control
+        </button>
     </div>
 
     <div v-if="currentTab === 'Status'" class="tabcontent">
-      <h3>Status!</h3>
-      <p>This is the current status of the greenhouse</p>
-      <p> Sample time: {{currentWeather.sampletime}}</p>
-      <p> Current temperature: {{currentWeather.temperature}} C</p>
-      <p> Current humidity: {{currentWeather.humidity}} %</p>
-      <p> Current cloudiness: {{currentWeather.cloudiness}} %</p>
+      <StatusPanel/>
+      <PlantStorage/>
     </div>
 
     <div v-if="currentTab === 'Tab2'" class="tabcontent">
       <h3>Tab2</h3>
-      <p>Under construction</p>
+      <p>Under construction, temperature graphs, and live camera image from greenhouse</p>
     </div>
 
     <div v-if="currentTab === 'Tab3'" class="tabcontent">
       <h3>Tab3</h3>
-      <p>Under construction</p>
+      <p>Under construction, adjust the regulation of greenhouse conditions</p>
     </div>
     
   </div>
@@ -34,8 +36,8 @@
 
 
 <script>
-import { mapState } from 'vuex'
-import { getCurrentWeather } from '@/api'  
+import StatusPanel from '@/components/StatusPanel.vue';
+import PlantStorage from '@/components/PlantStorage.vue';
 import { constants } from 'crypto';
 
 export default {
@@ -46,23 +48,17 @@ export default {
       weather: {}
     }
   },
+  components: {
+    StatusPanel,
+    PlantStorage,
+  },
   methods: {
     chooseTab(button) {
       this.currentTab = button;
     },
     getTab() {
       return this.currentTab;
-    },
-    statusIsSelected() {
-      console.log(this.currentTab);
-      return this.currentTab === "Status";
-    },
-  },
-  computed: mapState({
-    currentWeather: state => state.weather
-  }),
-  beforeMount() {
-    this.$store.dispatch('loadCurrentWeather')
+    }
   }
 }
 </script>
@@ -76,8 +72,8 @@ export default {
   
   .tabheader {
     width: 100%;
-    height: 48px;
-    background-color: #82b74b;
+    height: 120px;
+    background-color: transparent;
   }
 
   .tablinks {
@@ -85,11 +81,12 @@ export default {
     font-family: "Lato", sans-serif;
     display: inline-block;
     background-color: #82b74b;
-    color: black;
+    color: white;
     text-align: center;
 
     padding: 14px 16px;
     font-size: 17px;
+    min-width: 90px;
 
     &:focus {
       outline: none;
@@ -104,7 +101,5 @@ export default {
     margin:  0 50px 0 50px;
     height: 1000px;
     padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
   }
 </style>

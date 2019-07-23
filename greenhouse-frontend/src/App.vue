@@ -5,9 +5,13 @@
     <div class="topheader">
       <div class="logo-container">
         <nav id="menu">
-          <a href="http://localhost:8080/">
-          <img svg-inline class="icon" src="./assets/leaf.svg"/>
-          <h1 class="logotext">Greenhouse</h1>
+          <a href="http://localhost:8080/" class="logo-container-inner">
+            <div style="display: inline-block">
+              <img svg-inline class="icon" src="./assets/leafbulb.svg" style="transform: rotateY(180deg);"/>
+            </div>
+            <div style="display: inline-block;">
+              <h1 class="logotext">Greenhouse</h1>
+            </div>
           </a>
         </nav>
       </div>
@@ -19,12 +23,12 @@
 </template>
 
 <script>
-import index from './components/index.vue';
+import Index from './components/Index.vue';
 
 export default {
   name: 'app',
   components: {
-    index
+    Index
   },
 }
 </script>
@@ -35,7 +39,7 @@ export default {
   }
 
  .topheader {
-    background-color: #405d27;
+    background-color: #617B30;
     width: 100%;
     height: 100px;
   }
@@ -44,6 +48,13 @@ export default {
     width: 100%;
     height: 40px;
     background-color: #82b74b;
+  }
+
+  .logo-container-inner {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
   }
 
   .logo-container {
