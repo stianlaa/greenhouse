@@ -4,9 +4,9 @@
                 <Tray :trayData="tray"/>
             </div>
 
-            <div>
+            <!-- <div>
                 {{allTrays}}
-            </div>
+            </div> -->
     </div>
 </template>
 
@@ -20,7 +20,6 @@ components: {
 },
     computed: mapState({
       allTrays: (state) => {
-          console.log(state.trays)
           return state.trays;
       }
   }),
@@ -34,6 +33,7 @@ components: {
     .tray {
         margin-bottom: 20px;
     }
+    
     .sideborders {
         border: 2px solid #000;
         border-top: none;

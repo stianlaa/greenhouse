@@ -75,6 +75,5 @@ export default {
         justify-content: space-between;
         flex-direction: row;
         text-align: center;
-
     }
 </style>

@@ -7,13 +7,13 @@
             </div>
         </div>
         <div v-for="plant in trayData" :key='plant.plantId' class="plantField">
-            <a href="http://localhost:8080/" class="tray align-horizontally">
+            <router-link :to=getRouterLink() class="tray align-horizontally">
             <img svg-inline src="@/assets/flowerpot.svg" style="height: 75px; width: 75px;"/>
             <div>
                 <p>{{plant.plantType}}</p>
                 <p>{{parsePlantId(plant.plantId)}}</p>
             </div>
-            </a>
+            </router-link>
         </div>
     </div>
 </template>
@@ -31,8 +31,13 @@ export default {
             return plantId.length > 7 ? plantId.substring(1,7) : plantId;    
         },
         getTrayId() {
-            console.log()
             return (this.trayData) ? this.trayData[1].trayId: "";
+        },
+        getRouterLink() {
+            if (this.trayData && this.trayData[1].plantId) {
+                return "/plants/".concat(this.trayData[1].plantId)
+            }
+            return "/";
         }
     }
 }
@@ -59,5 +64,12 @@ export default {
         justify-content: left;
         flex-direction: row;
         text-align: center;
+    }
+
+    .sideborders {
+        border: 2px solid #000;
+        border-top: none;
+        border-bottom: none;
+        padding: 1rem;
     }
 </style>

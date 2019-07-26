@@ -1,13 +1,14 @@
 import Vue from 'vue'  
 import Vuex from 'vuex'
 
-import { getCurrentWeather, getAllTrays } from '@/api'
+import { getCurrentWeather, getAllTrays, getAllPlants } from '@/api'
 
 Vue.use(Vuex)
 
 const state = {  
   weather: {},
   trays: {},
+  plants: {},
 }
 
 const actions = {  
@@ -22,6 +23,12 @@ const actions = {
     .then((response) => {
       context.commit('setAllTrays', {trays: response.data})
     })
+  },
+  loadAllPlants(context) {
+    return getAllPlants()
+    .then((response) => {
+      context.commit('setAllPlants', {plants: response.data})
+    })
   }
 }
 
@@ -31,6 +38,9 @@ const mutations = {
   },
   setAllTrays(state, payload) {
     state.trays = payload.trays
+  },
+  setAllPlants(state, payload) {
+    state.plants = payload.plants
   }
 }
 
