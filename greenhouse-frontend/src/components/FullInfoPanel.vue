@@ -88,7 +88,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
     .tabcontent {
         margin:  0 50px 0 50px;
         height: 1000px;

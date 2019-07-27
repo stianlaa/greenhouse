@@ -58,7 +58,7 @@ methods: {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
     .grownth-month-canvas{
         height: 100px;
         width: 400px;

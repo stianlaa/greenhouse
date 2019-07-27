@@ -38,12 +38,15 @@ export default {
                 return "/plants/".concat(this.trayData[1].plantId)
             }
             return "/";
+        },
+        calculateTotalWaterNeed() {
+            
         }
     }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
     .plantField {
 
         margin-left: 2rem;
@@ -54,7 +57,6 @@ export default {
     }
     
     .tray {
-        background-color: blue($color: #000000);
         min-width: 100px;
         min-height: 100px;
     }

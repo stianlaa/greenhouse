@@ -29,7 +29,7 @@ components: {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
     .tray {
         margin-bottom: 20px;
     }
