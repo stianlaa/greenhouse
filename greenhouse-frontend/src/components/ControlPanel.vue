@@ -1,5 +1,6 @@
 <template>
     <div>
+        <p>Should contain: start, stop, watertray (with input field with validation for volume, and select for tray) </p>
         <button> water now! </button>
     </div>
 </template>
@@ -10,6 +11,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 
 </style>
