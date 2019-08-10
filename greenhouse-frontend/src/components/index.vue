@@ -27,8 +27,8 @@
     </div>
 
     <div v-if="currentTab === 'Tab3'" class="tabcontent">
-      <h3>Tab3</h3>
-      <p>Under construction, adjust the regulation of greenhouse conditions</p>
+      <p> should show up here </p>
+      <ControlPanel/>
     </div>
     
   </div>
@@ -37,6 +37,7 @@
 
 <script>
 import StatusPanel from '@/components/StatusPanel.vue';
+import ControlPanel from '@/components/ControlPanel.vue';
 import PlantStorage from '@/components/PlantStorage.vue';
 import { constants } from 'crypto';
 
@@ -50,6 +51,7 @@ export default {
   },
   components: {
     StatusPanel,
+    ControlPanel,
     PlantStorage,
   },
   methods: {

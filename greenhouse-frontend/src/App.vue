@@ -5,7 +5,7 @@
     <div class="topheader">
       <div class="logo-container">
         <nav id="menu">
-          <a href="http://localhost:8080/" class="logo-container-inner">
+          <a href="#" class="logo-container-inner">
             <div style="display: inline-block">
               <img svg-inline class="icon" src="./assets/leafbulb.svg" style="transform: rotateY(180deg);"/>
             </div>
